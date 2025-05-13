@@ -1,4 +1,4 @@
-# Automated Title Verification System
+# Automated Title Verification System - VerifyPro
 
 _A Smart India Hackathon (SIH) 2025 Project – Solution to Problem Statement #1782_
 
