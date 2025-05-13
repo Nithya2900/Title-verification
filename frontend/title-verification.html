@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title Verification System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://study.com/cimages/multimages/16/newspaper4211527008062946561.jpg');
+            background-size: 1500px;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-link:hover {
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid white;
+        }
+
+        .verify-btn:hover {
+            transform: scale(1.05);
+            background-color: #2563EB;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .result-section {
+            animation: slideUp 0.5s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-2xl">Title Verification System</h1>
+        <nav>
+            <a href="test.html" class="nav-link mr-4">Home</a>
+            <a href="title-verification.html" class="nav-link mr-4">Title Verification</a>
+            <a href="guidelines.html" class="nav-link mr-4">Guidelines</a>
+            <a href="contact.html" class="nav-link">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Title Verification Section -->
+    <div class="container mx-auto p-4 mt-6 bg-white shadow-md rounded-lg fade-in max-w-xl">
+        <h2 class="text-xl mb-4 text-gray-800">Enter Title for Verification</h2>
+        <input type="text" id="titleInput" class="border border-gray-300 p-2 rounded w-full mb-4 focus:ring focus:ring-blue-500" placeholder="Enter Title">
+        <button onclick="verifyTitle()" class="bg-blue-600 text-white py-2 px-4 rounded verify-btn w-full">Verify</button>
+
+        <div id="result" class="mt-6 text-gray-800"></div>
+    </div>
+
+    <script>
+        function verifyTitle() {
+    const title = document.getElementById('titleInput').value;
+    if (!title) {
+        alert('Please enter a title.');
+        return;
+    }
+
+    fetch('http://127.0.0.1:5000/check_title', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title })
+    })
+    .then(response => response.json())
+    .then(data => {
+        let resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+            <div class="result-section bg-white p-4 mt-4 rounded-lg shadow">
+                <h3 class="text-lg font-bold">Verification Result</h3>
+                <p>Status: ${data.status}</p>
+                <p>Verification Probability: ${data.verification_probability}%</p>
+                <p>Violated Words: ${data.violated_words.length > 0 ? data.violated_words.join(', ') : 'None'}</p>
+                <h4 class="text-md font-bold mt-4">Similar Titles:</h4>
+                <ul class="list-disc ml-5">
+                    ${data.similar_titles.map(t => `<li>${t.title} (Score: ${t.similarity_score}%)</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title Verification System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/top-view-old-french-newspaper-pieces_23-2149318857.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-link:hover {
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid white;
+        }
+
+        .verify-btn:hover {
+            transform: scale(1.05);
+            background-color: #2563EB;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .result-section {
+            animation: slideUp 0.5s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <h1 class="text-2xl font-bold">VerifyPro</h1>
+        </div>
+        <nav>
+            <a href="test.html" class="nav-link text-white mr-4">Home</a>
+            <a href="title-verification.html" class="nav-link text-white mr-4">Title Verification</a>
+            <a href="guidelines.html" class="nav-link text-white mr-4">Guidelines</a>
+            <a href="contact.html" class="nav-link text-white">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section flex justify-center items-center py-12">
+        <div class="contact-form bg-white p-8 rounded-lg shadow-lg w-full max-w-lg fade-in">
+            <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+            <p class="mb-6">If you have any questions or need assistance, feel free to reach out to us.</p>
+            <form action="contact-submit.php" method="POST">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" class="w-full p-2 border border-gray-300 rounded" required></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded verify-btn">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
