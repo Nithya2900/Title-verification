@@ -97,3 +97,13 @@ We propose a **multi-layered verification system** combining:
 - NLP Semantic Models – Word2Vec, BERT
 - Database Indexing – B-Trees, Hash Indexing, Full-Text Search
 - Real-World Use Cases – Title Validation in Publishing Industries
+- 
+![Screenshot 2025-05-13 124227](https://github.com/user-attachments/assets/8fa6f54b-bad7-40b2-a9ed-63fa48ea7fc5)
+![Screenshot 2025-05-13 124302](https://github.com/user-attachments/assets/e3562aab-152d-4746-a430-dbc7215a0fcc)
+![Screenshot 2025-05-13 124359](https://github.com/user-attachments/assets/819baa29-8f88-45e3-ba63-43ac9752aff6)
+![Screenshot 2025-05-13 124553](https://github.com/user-attachments/assets/7163f13b-2cab-4787-98e6-9cc17e307e25)
+
+
+
+
+
