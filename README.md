@@ -16,7 +16,7 @@ Manual methods are time-consuming, inconsistent, and prone to errors. This syste
 - ✅ Ensure **uniqueness** of all new title submissions.
 - ✅ Detect **phonetic**, **spelling**, and **semantic** similarities.
 - ✅ Reject titles with **disallowed words**, **prefixes**, or **suffixes**.
-- ✅ Prevent names created by combining or modifying existing titles.
+- ✅ Prevent names created by **combining or modifying** existing titles.
 - ✅ Provide a **probability score** indicating the chance of title acceptance.
 - ✅ Offer **clear feedback** for rejected submissions to enable corrections.
 - ✅ Maintain **scalability** to support large volumes (160K+ titles).
